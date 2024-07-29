@@ -1,4 +1,7 @@
+import { Actor } from 'apify';
 import { PlaywrightCrawler, Dataset } from 'crawlee';
+
+await Actor.init();
 
 const crawler = new PlaywrightCrawler({
     requestHandler: async ({ page, request, enqueueLinks }) => {
@@ -75,3 +78,5 @@ const crawler = new PlaywrightCrawler({
 });
 
 await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections']);
+
+await Actor.exit();
